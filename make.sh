@@ -17,9 +17,17 @@ EOT
 # ---
 # 예제 출력 N
 # ...
-cat <<EOT > $1
-
----
-
-###
+cat <<'EOT' > $1
+var result = ""
+$('.sampledata').map((i,e) => {
+  result+=e.innerHTML+(i%2 ? '###\n': '---\n')
+})
+var textarea = document.createElement('textarea');
+textarea.value = result;
+document.body.appendChild(textarea);
+textarea.select();
+textarea.setSelectionRange(0, 9999);  // 추가
+document.execCommand('copy');
+document.body.removeChild(textarea);
+console.log(result)
 EOT
