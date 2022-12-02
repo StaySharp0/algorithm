@@ -31,4 +31,4 @@ document.execCommand('copy');
 document.body.removeChild(textarea);
 console.log(result)
 EOT
-vim $1
+vim $1 && vim $1.py
